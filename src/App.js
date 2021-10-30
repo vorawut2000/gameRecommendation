@@ -1,15 +1,30 @@
 import "./App.css";
-import { styled } from "@mui/material/styles";
+import { AppBar, Typography, Toolbar, styled } from "@mui/material";
+import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+import InputRecommend from "./component/InputRecommend";
 
-const Div = styled("div")(({ theme }) => ({
-  ...theme.typography.h2,
-  color: "white",
-}));
+const AppBarCustom = styled(AppBar)({
+  backgroundColor: "#1C1C25",
+});
 
 function App() {
   return (
     <div className="App">
-      <Div>{"iFlame Recommendation"}</Div>;
+      <AppBarCustom position="static">
+        <Toolbar>
+          <SportsEsportsIcon
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          />
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            iFlame Recommendation
+          </Typography>
+        </Toolbar>
+      </AppBarCustom>
+      <InputRecommend />
     </div>
   );
 }
