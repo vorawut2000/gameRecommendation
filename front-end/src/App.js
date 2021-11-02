@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { AppBar, Typography, Toolbar, styled } from "@mui/material";
+import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+import InputRecommend from "./component/InputRecommend";
+
+const AppBarCustom = styled(AppBar)({
+  backgroundColor: "#1C1C25",
+});
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AppBarCustom position="static">
+        <Toolbar>
+          <SportsEsportsIcon
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          />
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            iFlame Recommendation
+          </Typography>
+        </Toolbar>
+      </AppBarCustom>
+      <InputRecommend />
     </div>
   );
 }
