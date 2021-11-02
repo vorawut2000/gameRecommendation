@@ -19,21 +19,21 @@ const GameCard = () => {
   return (
     <CardCustom sx={{ minWidth: 375 }}>
       <CardActionArea>
-        <CardMedia
+        {/* <CardMedia
           component="img"
           height="140"
           image="https://cdn.cloudflare.steamstatic.com/steam/apps/730/capsule_616x353.jpg?t=1635269541"
-          alt="green iguana"
-        />
+          alt="game"
+        /> */}
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             CSGO
           </Typography>
-          <Typography variant="body2" >
+          {/* <Typography variant="body2" >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          </Typography>
+          </Typography> */}
         </CardContent>
       </CardActionArea>
       <CardActions>

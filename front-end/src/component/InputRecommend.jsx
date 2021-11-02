@@ -40,7 +40,7 @@ const CardContentCustom = styled(CardContent)({
 
 const InputRecommend = () => {
   const [data, setData] = useState(false);
-  const [/* game */, setGame] = useState("");
+  const [, /* game */ setGame] = useState("");
   const handeleClickData = () => {
     setData(!data);
   };
@@ -55,22 +55,8 @@ const InputRecommend = () => {
         justify="center"
       >
         <CardCustom sx={{ maxWidth: 800 }}>
-          <TypographyCustom>
-            Select 1-3 game title that you like
-          </TypographyCustom>
+          <TypographyCustom>Search game title that you like</TypographyCustom>
           <CardContentCustom>
-            <TextFieldCustom
-              placeholder="Start typing your game"
-              onChange={(e) => {
-                setGame(e.target.value);
-              }}
-            />
-            <TextFieldCustom
-              placeholder="Start typing your game"
-              onChange={(e) => {
-                setGame(e.target.value);
-              }}
-            />
             <TextFieldCustom
               placeholder="Start typing your game"
               onChange={(e) => {
@@ -85,15 +71,12 @@ const InputRecommend = () => {
               justifyContent="space-around"
               alignItems="center"
             >
-              <Button variant="contained" color="primary">
-                Reset
-              </Button>
               <Button
                 variant="contained"
                 color="primary"
                 onClick={handeleClickData}
               >
-                Submit
+                Recommend
               </Button>
             </Grid>
           </CardActions>
