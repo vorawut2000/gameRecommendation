@@ -1,7 +1,8 @@
 import React from "react";
 import CardContent from "@mui/material/CardContent";
-// import CardMedia from "@mui/material/CardMedia";
+import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
+
 import {
   Button,
   CardActionArea,
@@ -15,25 +16,14 @@ const Div = styled("div")({
   margin: "32px",
 });
 
-const GameCard = () => {
+const GameCard = (props) => {
   return (
     <CardCustom sx={{ minWidth: 375 }}>
       <CardActionArea>
-        {/* <CardMedia
-          component="img"
-          height="140"
-          image="https://cdn.cloudflare.steamstatic.com/steam/apps/730/capsule_616x353.jpg?t=1635269541"
-          alt="game"
-        /> */}
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            CSGO
+            {props.title}
           </Typography>
-          {/* <Typography variant="body2" >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          </Typography> */}
         </CardContent>
       </CardActionArea>
       <CardActions>
@@ -45,7 +35,7 @@ const GameCard = () => {
   );
 };
 
-const GameList = () => {
+const GameList = (props) => {
   return (
     <Div>
       <Grid
@@ -53,9 +43,9 @@ const GameList = () => {
         spacing={{ xs: 2, md: 3 }}
         columns={{ xs: 2, sm: 8, md: 12 }}
       >
-        {Array.from(Array(6)).map((_, index) => (
+        {props.results.map((title, index) => (
           <Grid item xs={2} sm={4} md={4} key={index}>
-            <GameCard />
+            <GameCard title={title}/>
           </Grid>
         ))}
       </Grid>

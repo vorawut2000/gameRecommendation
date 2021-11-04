@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios"
 import {
   Card,
   Button,
@@ -39,10 +40,17 @@ const CardContentCustom = styled(CardContent)({
 });
 
 const InputRecommend = () => {
-  const [data, setData] = useState(false);
-  const [, /* game */ setGame] = useState("");
-  const handeleClickData = () => {
-    setData(!data);
+  const [open, setOpen] = useState(false);
+  const [game, setGame] = useState("");
+  const [results, setResults] = useState([]);
+  const onRecommend = async () => {
+    const result = await axios.post("http://127.0.0.1:5000/predict-game", {
+      item_name: game,
+    });
+    if (result.data) {
+      setResults(result.data);
+    }
+    setOpen(!open);
   };
 
   return (
@@ -71,11 +79,7 @@ const InputRecommend = () => {
               justifyContent="space-around"
               alignItems="center"
             >
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={handeleClickData}
-              >
+              <Button variant="contained" color="primary" onClick={onRecommend}>
                 Recommend
               </Button>
             </Grid>
@@ -83,11 +87,13 @@ const InputRecommend = () => {
         </CardCustom>
       </Grid>
       {/* change later na */}
-      <Collapse in={data} timeout="auto" unmountOnExit>
-        <GameList />
+      <Collapse in={open} timeout="auto" unmountOnExit>
+          <GameList results = {results}/>
+        
       </Collapse>
     </>
   );
 };
+
 
 export default InputRecommend;
